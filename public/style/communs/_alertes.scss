@@ -1,0 +1,45 @@
+.alert {
+  width: 80%;
+  height: 60px;
+  margin: 20px auto;
+  @include flexMid;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid #f1f1f1;
+  border-radius: 10px;
+  color: #333;
+  text-align: center;
+  padding: 5px 0;
+  visibility : 1;
+  animation : disparitionAlerte 2s 3s;
+  animation-fill-mode: forwards
+}
+
+@keyframes disparitionAlerte{
+  100%{
+    transform: translateY(-100% ) scale(0);
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0 auto;
+    visibility: hidden;
+  }
+  
+  
+}
+
+.rouge {
+  background-color: rgb(243, 48, 87);
+}
+.orange {
+  background-color: rgb(255, 150, 14);
+}
+.vert {
+  background-color: greenyellow;
+}
+.dnone {
+  display: none;
+}
+
+

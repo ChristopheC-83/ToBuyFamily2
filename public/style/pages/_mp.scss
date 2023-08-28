@@ -1,0 +1,174 @@
+.pageMP {
+  .dnone {
+    display: none;
+  }
+  h1 {
+    text-align: center;
+  }
+
+  .btnNewMsg {
+    margin: 10px auto 40px;
+    width: fit-content;
+    height: fit-content;
+    border: 3px solid $noir;
+    border-radius: 8px;
+    padding: 3px;
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(
+        0deg,
+        rgba(16, 16, 16, 1) 0%,
+        rgba(183, 183, 183, 1) 50%,
+        rgba(16, 16, 16, 1) 100%
+      );
+      z-index: 0;
+      animation: rotation 3s infinite linear;
+    }
+
+    @keyframes rotation {
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .ecrireMP {
+      position: relative;
+      border: 1px solid $noir;
+      border-radius: 8px;
+      font-weight: bold;
+      width: fit-content;
+      padding: 10px 20px;
+      cursor: pointer;
+      box-shadow: 2px 2px 20px #33333395;
+      margin: 0;
+      z-index: 2;
+      background-color: $blanc;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: $noir;
+        color: $blanc;
+      }
+    }
+  }
+
+  #envoiMP {
+    box-shadow: 2px 2px 20px #33333395;
+  }
+  #annulerMP {
+    border: 1px solid $noir;
+    border-radius: 8px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin: 20px auto;
+    cursor: pointer;
+    background-color: red;
+    box-shadow: 2px 2px 10px #ff000095;
+    transition: all 0.33s;
+
+    &:hover {
+      color: red;
+      background-color: $noir;
+      box-shadow: 2px 2px 20px #33333395;
+    }
+  }
+
+  .inactif {
+    background-color: $gris;
+    cursor: none;
+  }
+
+  .messagesRecus {
+    width: 90%;
+    margin: 10px auto;
+
+    .boiteVide {
+      margin-left: 5%;
+    }
+
+    .messageDe {
+      cursor: pointer;
+      h4 {
+        margin-top: -10px;
+        color: blue;
+      }
+    }
+    .listeMessagesRecus {
+      width: 90%;
+      margin: 10px auto;
+    }
+    h2 {
+      margin-left: 5%;
+      border: 1px solid $noir;
+      border-radius: 8px;
+      width: fit-content;
+      padding: 10px 20px;
+      box-shadow: 2px 2px 20px #33333395;
+    }
+
+    .messageRecu {
+      padding: 10px;
+      margin: 10px auto;
+      width: 100%;
+      border: 1px solid $noir;
+      border-radius: 8px;
+      box-shadow: 1px 1px 8px #33333395;
+      background-color: #fff;
+    }
+    .message {
+      margin: 0 10px;
+    }
+    .dateMP {
+      width: 100%;
+      text-align: right;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+    .trashBox {
+      margin-left: auto;
+      width: clamp(25px, calc(20px + 2vw), 40px);
+      height: clamp(25px, calc(20px + 2vw), 40px);
+      border: 1px solid $noir;
+      border-radius: 50%;
+      background-color: red;
+      @include flexMid;
+      box-shadow: 1px 1px 8px #33333395;
+    }
+    .fa-trash-can {
+      color: $blanc;
+      width: 100%;
+      font-size: clamp(16px, calc(14px + 0.8vw), 20px);
+      font-weight: bold;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .pageMP {
+    .messagesRecus {
+      h3 {
+        margin-left: 10%;
+      }
+      .listeMessagesRecus {
+        width: 100%;
+        margin: 0;
+      }
+    }
+    .messagesRecus {
+      width: 98%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}

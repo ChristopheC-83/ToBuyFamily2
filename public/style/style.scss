@@ -1,0 +1,33 @@
+@import "libs/variables";
+@import "libs/reset";
+@import "libs/mixins";
+@import "libs/polices";
+@import "communs/header_menu";
+@import "communs/footer";
+@import "communs/formulaire";
+@import "communs/titres";
+@import "communs/overlay";
+@import "communs/alertes";
+@import "pages/login";
+@import "pages/profil";
+@import "pages/droits";
+@import "pages/mp";
+@import "pages/accueil";
+@import "pages/listes";
+
+body {
+  background-color: #f1f1f1;
+  color: #fff;
+  min-height: 100vh;
+  position: relative;
+  // max-width: 1440px;
+  margin: 0 auto;
+  border-bottom: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.bodycontent {
+  flex-grow: 1;
+  background-color: #fff;
+}

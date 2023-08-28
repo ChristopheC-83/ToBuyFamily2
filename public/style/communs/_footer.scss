@@ -1,0 +1,8 @@
+footer{
+
+    width: 100%;
+    background: linear-gradient(60deg, rgba(241,241,241,1) 0%, rgba(61,133,245,1) 20%, rgba(61,133,245,1) 80%, rgba(51,51,51,1) 100%);
+    // padding: 10px;
+    @include flexMid;
+    box-shadow: 0px -2px 10px #33333390;
+}
