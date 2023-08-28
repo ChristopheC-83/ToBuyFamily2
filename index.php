@@ -10,7 +10,6 @@ define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https"  
 require_once("./controllers/administrateur/administrateur.controller.php");
 require_once("./controllers/visiteur/visiteur.controller.php");
 require_once("./controllers/utilisateur/utilisateur.controller.php");
-require_once("./controllers/utilisateur/messages_prives.controller.php");
 require_once("./controllers/utilisateur/listes.controller.php");
 require_once("./controllers/functionController.controller.php");
 require_once("./controllers/security.controller.php");
@@ -114,18 +113,16 @@ try {
                         header('location:' . URL . "compte/listes");
                         break;
                     case "creerListe":
-
-
-                        if (preg_match('/^[a-zA-Z0-9]+$/', $_POST['name_list'])) {
-
+                        if (!empty($_POST['name_list']) && !empty($_POST['creator'])) {
                             $newList = secureHTML($_POST['name_list']);
                             $creator = secureHTML($_POST['creator']);
                             $_SESSION['profil']['liste'] = $newList;
                             $_SESSION['profil']['creator'] = $creator;
-
                             creerListe($creator, $newList);
+
+                            header('location:' . URL . "compte/choixListe");
                         } else {
-                            ajouterMessageAlerte("La liste ne doit contenir que des lettres et des chiffres.", "rouge");
+                            ajouterMessageAlerte("La liste n'a pas été créée.", "rouge");
                             header('location:' . URL . "compte/choixListe");
                         }
 
@@ -213,51 +210,6 @@ try {
                         header('location:' . URL . "compte/choixListe");
                         break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    case "envoyerMessage":
-                        envoyerMP();
-                        break;
-                    case "envoiMP":
-                        $msg = secureHTML($_POST['msg']);
-                        $destinataire = secureHTML($_POST['destinataire']);
-                        validationEnvoiMP($msg, $destinataire, $_SESSION['profil']['login']);
-                        break;
-
-                    case "masquerDeBR":
-                        $id = secureHTML($url[2]);
-                        $infoMsg = infoMsg($id);
-                        if ($infoMsg['boiteEnvoi'] === 0) {
-                            effacerMP($id);
-                        } else {
-                            masquerDeBR($id);
-                        };
-                        break;
-                    case "masquerDeBE":
-                        $id = secureHTML($url[2]);
-                        $infoMsg = infoMsg($id);
-                        if ($infoMsg['boiteReception'] === 0) {
-                            effacerMP($id);
-                        } else {
-                            masquerDeBE($id);
-                        };
-                        break;
 
                     case "validation_modifImage":
                         if ($_FILES['image']['size'] > 0) {

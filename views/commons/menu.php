@@ -27,9 +27,6 @@
             <a href="<?= URL ?>compte/profil">
                 Profil
             </a>
-            <a href="<?= URL ?>compte/envoyerMessage">
-                MP
-            </a>
             <a href="<?= URL ?>compte/deconnexion">
                 Déconnexion
             </a>
